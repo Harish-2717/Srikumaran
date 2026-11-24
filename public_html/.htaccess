@@ -1,0 +1,33 @@
+RewriteEngine On
+
+DirectoryIndex index.php
+
+# -------------------------------------------------
+# 1. Admin main URL (/admin or /admin/)
+# -------------------------------------------------
+RewriteRule ^admin/?$ admin/index.php [L]
+
+# -------------------------------------------------
+# 2. Admin routes
+# -------------------------------------------------
+RewriteRule ^admin/dashboard/?$ admin/dashboard.php [L]
+RewriteRule ^admin/active_members/?$ admin/active_members.php [L]
+RewriteRule ^admin/paid_members/?$ admin/paid_members.php [L]
+RewriteRule ^admin/inactive_members/?$ admin/inactive_members.php [L]
+RewriteRule ^admin/new_registration/?$ admin/new_registration.php [L]
+RewriteRule ^admin/add_new_member/?$ admin/add_new_member.php [L]
+RewriteRule ^admin/view_user/?$ admin/view_user.php [L]
+RewriteRule ^admin/delete_member/?$ admin/delete_member.php [L]
+RewriteRule ^admin/download_a4/?$ admin/download_a4.php [L]
+RewriteRule ^admin/export_active_members/?$ admin/export_active_members.php [L]
+RewriteRule ^admin/general_master/?$ admin/general_master.php [L]
+RewriteRule ^admin/generalmaster/(.+)/?$ admin/generalmaster/$1.php [L]
+RewriteRule ^admin/logout/?$ admin/logout.php [L]
+
+# -------------------------------------------------
+# 3. Hide .php extension for main site pages
+# -------------------------------------------------
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.+)$ $1.php [L]

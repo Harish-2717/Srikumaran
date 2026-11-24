@@ -1,0 +1,6 @@
+# Archives
+*.zip
+
+# Temp files
+public_html/temp/*
+!public_html/temp/.gitkeep
